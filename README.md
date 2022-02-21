@@ -15,5 +15,7 @@ This example requires the following dependencies software.
 
 1. Unzip or download the example project folder into a directory of your choice 
 2. Run ```$npm install``` in the command prompt to install all the dependencies required to run the sample in a subdirectory called *node_modules/*.
-
+3. Run ```$tsc``` in the command prompt to compile typescript into javascript.
+4. Run ```$node dist/index.js``` to start a script.
+5.  
 
