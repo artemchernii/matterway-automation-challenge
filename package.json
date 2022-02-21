@@ -23,6 +23,7 @@
   "homepage": "https://github.com/artemchernii/matterway-challenge#readme",
   "dependencies": {
     "inquirer": "^8.2.0",
-    "puppeteer": "^13.3.2"
+    "puppeteer": "^13.3.2",
+    "puppeteer-select": "^1.0.3"
   }
 }
