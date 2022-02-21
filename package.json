@@ -1,0 +1,28 @@
+{
+  "name": "matterway-challenge",
+  "version": "1.0.0",
+  "description": "javascript challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artemchernii/matterway-challenge.git"
+  },
+  "keywords": [
+    "Matterway",
+    "challenge",
+    "Typescript"
+  ],
+  "author": "Artem Chernii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artemchernii/matterway-challenge/issues"
+  },
+  "homepage": "https://github.com/artemchernii/matterway-challenge#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "puppeteer": "^13.3.2"
+  }
+}
