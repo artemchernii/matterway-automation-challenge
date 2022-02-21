@@ -3,9 +3,6 @@ const inquirer = require('inquirer');
 const puppeteer = require('puppeteer');
 import { genres } from './genres';
 
-// Props
-let pickedGenre: string = '';
-
 // Convert genre into url
 const genreToUrl = (genre: string) => {
   return genre.split(' ').length === 0
@@ -30,13 +27,13 @@ const getBookByGenre = (): void => {
       },
     ])
     .then((answers: { genre: string }) => {
-      pickedGenre = answers.genre;
-      if (pickedGenre) getBookWithPuppeteer();
+      const pickedGenre = answers.genre;
+      if (pickedGenre) getBookWithPuppeteer(pickedGenre);
     });
 };
 
 // Bootstrap
-const main = async (): Promise<void> => {
+const main = async () => {
   try {
     getBookByGenre();
   } catch (error) {
@@ -48,7 +45,8 @@ const randomIntFromInterval = (min: number, max: number): number =>
   Math.floor(Math.random() * (max - min + 1) + min);
 
 // Scraping and buying
-const getBookWithPuppeteer = async () => {
+const getBookWithPuppeteer = async (pickedGenre: string) => {
+  // Set up puppeteer
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   const URL = `https://www.goodreads.com/choiceawards/best-${genreToUrl(
@@ -57,6 +55,7 @@ const getBookWithPuppeteer = async () => {
   console.log(URL);
   const amazonPage = 'https://www.amazon.com/';
 
+  // Page viewport
   await page.setViewport({
     width: 1280,
     height: 800,
@@ -98,9 +97,8 @@ const getBookWithPuppeteer = async () => {
   if (getBookFromList !== null && getBookFromList)
     await getBookFromList.click();
 
-  const pickPaperback = await page.waitForXPath(
-    '//a/span[contains(text(), "Paperback")]'
-  );
+  // Pick paperback book to be able to add it to card
+  await page.waitForXPath('//a/span[contains(text(), "Paperback")]');
   const paperBackLink = await page.$x(
     '//a/span[contains(text(), "Paperback")]'
   );
@@ -108,8 +106,7 @@ const getBookWithPuppeteer = async () => {
     await paperBackLink[0].click();
   }
 
-  //   if (paperBackLink !== null && paperBackLink) await paperBackLink.click();
-
+  // Add to cart
   const addToCart = await page.waitForXPath('//*[@id="add-to-cart-button"]', {
     visible: true,
   });
