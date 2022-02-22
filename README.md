@@ -1,6 +1,5 @@
 # Matterway - JS challenge
 
-
 ## Environment
 App starts in terminal and after user select genre of the book then puppeteer launches Chromium Chromium using the latest JavaScript and browser features.
 
@@ -17,5 +16,8 @@ This example requires the following dependencies software.
 2. Run ```$npm install``` in the command prompt to install all the dependencies required to run the sample in a subdirectory called *node_modules/*.
 3. Run ```$tsc``` in the command prompt to compile typescript into javascript.
 4. Run ```$node dist/index.js``` to start a script.
-5.  
-
+![Select preferred genre](https://i.ibb.co/wKXW9BV/pick-Genre.png "Select preferred genre")
+5. App fetch random book for the selected genre from https://www.goodreads.com/choiceawards/best-books-2020
+![Fetch selected genre book](https://i.ibb.co/QkHCsQF/pickBook.png "Fetch selected genre book")
+6. Find selected book on Amazon and add it to card.
+![Add selected book to the buying card on Amazon](https://i.ibb.co/GtdSFSq/checkout.png "Add selected book to the buying card on Amazon")
