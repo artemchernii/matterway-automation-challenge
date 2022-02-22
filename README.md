@@ -1,4 +1,4 @@
-# Matterway - JS challenge
+# JavaScript Challenge with Puppeteer and Typescript
 
 ## Environment
 App starts in terminal and after user select genre of the book then puppeteer launches Chromium Chromium using the latest JavaScript and browser features.
